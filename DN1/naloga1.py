@@ -60,7 +60,11 @@ def decode(vhod: list, S: list) -> list:
         izhod.append(chr(zap[i]))
     return izhod
 
+def compute_compression_ratio(vhod: list, izhod:list, mode: str) -> float:
+    vhodSize = len(vhod)
+    izhodSize = len(izhod)
+    if izhodSize == 0:
+        return float('nan')
+    R = float((vhodSize * 8) / (izhodSize * 12))
+    return R
 
-rezultat, S = encode(list("ABABA"))
-dekodirano = decode(rezultat, S)
-print(dekodirano)
